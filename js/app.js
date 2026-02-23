@@ -50,10 +50,10 @@ if (defectForm) {
 
         // Restaurar estado visual y valor oculto del turno por defecto
         document.querySelectorAll(".turnos button").forEach(b => b.classList.remove("active"));
-        const btnNocturno = document.querySelector('.turnos button[data-turno="Nocturno"]');
+        const btnNocturno = document.querySelector('.turnos button[data-turno="Noche"]');
         if (btnNocturno) {
           btnNocturno.classList.add("active");
-          document.getElementById("turno").value = "Nocturno";
+          document.getElementById("turno").value = "Noche";
         }
 
         // Restaurar la fecha por defecto de nuevo
