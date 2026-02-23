@@ -1,0 +1,134 @@
+<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Quality | Registrar defecto</title>
+  <link rel="stylesheet" href="css/style.css" />
+</head>
+<body>
+  <div class="layout">
+  <aside class="sidebar">
+
+  <!-- Parte superior -->
+  <div>
+    <div class="brand">
+      <div class="logo">Q</div>
+      <div>
+        <div class="name">Quality</div>
+        <div class="tag">Registro & análisis de defectos</div>
+      </div>
+    </div>
+
+    <nav class="nav">
+      <a href="index.html">📊 Dashboard</a>
+      <a class="active" href="register.html">➕ Registrar Defecto</a>
+      <a href="history.html">🗂️ Historial</a>
+    </nav>
+
+    <div class="hint">Proyecto de estadías</div>
+  </div>
+
+  <!-- Parte inferior -->
+  <div style="margin-top:auto; padding-top:14px;">
+    <button id="btnLogout" class="btn secondary" style="width:100%;">
+      🔒 Cerrar sesión
+    </button>
+  </div>
+
+</aside>
+    <main class="main glow">
+      <div class="page-title">
+        <h1>Registro Técnico de Defectos</h1>
+        <p>Ingrese los detalles del defecto para actualizar el inventario de calidad.</p>
+      </div>
+
+      <form id="defectForm" class="grid">
+        <!-- Card 1 -->
+        <section class="card">
+          <header>
+            <div class="badge">📋</div>
+            <h2>Información de Producción</h2>
+          </header>
+          <div class="content">
+            <div class="field">
+              <label class="label">Fecha</label>
+              <input class="input" type="date" id="fecha" />
+            </div>
+
+            <div class="field">
+              <label class="label">Línea de Producción</label>
+              <select class="select" id="linea">
+                <option value="">Seleccione una línea</option>
+                <option>Templado</option>
+                <option>Espejo</option>
+              </select>
+            </div>
+
+            <div class="field">
+              <label class="label">Turno Operativo</label>
+              <div class="turnos">
+                <button type="button" data-turno="Matutino">Dia</button>
+                <button type="button" data-turno="Vespertino">Tarde</button>
+                <button type="button" data-turno="Nocturno" class="active">Noche</button>
+              </div>
+              <input type="hidden" id="turno" value="Nocturno" />
+            </div>
+          </div>
+        </section>
+
+        <!-- Card 2 -->
+        <section class="card">
+          <header>
+            <div class="badge">🧾</div>
+            <h2>Detalles del Hallazgo</h2>
+          </header>
+          <div class="content">
+            <div class="field">
+              <label class="label">Tipo de Defecto</label>
+              <select class="select" id="tipo_defecto">
+                <option value="">Categoría del defecto</option>
+                <option>Tallon</option>
+                  <option>Burbuja</option>
+                  <option>Piedra</option>
+                  <option>Mancha de agua</option>
+                  <option>Grumos</option>
+                  <option>Grasa</option>
+                  <option>Ferrico</option>
+                  <option>Concha</option>
+                  <option>Nubosidad</option>
+                  <option>Falta de plata</option>
+                  <option>Crater</option>
+                  <option>Otro</option>
+              </select>
+            </div>
+
+            <div class="field">
+              <label class="label">Cantidad Afectada</label>
+              <input class="input" type="number" id="cantidad" placeholder="Ej. 15" min="0" />
+            </div>
+
+            <div class="field">
+              <label class="label">Descripción Detallada</label>
+              <textarea class="textarea" id="descripcion" placeholder="Detalle el problema encontrado..."></textarea>
+            </div>
+
+            <div class="field">
+              <label class="label">Responsable</label>
+              <input class="input" type="text" id="responsable" placeholder="Nombre (opcional)" />
+            </div>
+          </div>
+        </section>
+
+     
+
+        <div class="actions" style="grid-column:1/-1">
+          <button id="btnSave" class="btn" type="submit">Registrar defecto</button>
+        </div>
+      </form>
+    </main>
+  </div>
+
+  <script src="js/app.js"></script>
+</body>
+</html>

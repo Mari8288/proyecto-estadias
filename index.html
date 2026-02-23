@@ -1,0 +1,183 @@
+<!doctype html>
+<html lang="es">
+
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Quality | Dashboard</title>
+  <link rel="stylesheet" href="css/style.css" />
+  <script src="https://unpkg.com/lucide@latest"></script>
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+</head>
+
+<body>
+  <div class="layout">
+    <aside class="sidebar">
+
+      <!-- Parte superior -->
+      <div>
+        <div class="brand">
+          <div class="logo">Q</div>
+          <div>
+            <div class="name">Quality</div>
+            <div class="tag">Registro & análisis de defectos</div>
+          </div>
+        </div>
+
+        <nav class="nav">
+          <a class="active" href="index.html">📊 Dashboard</a>
+          <a href="register.html">➕ Registrar Defecto</a>
+          <a href="history.html">🗂️ Historial</a>
+        </nav>
+
+        <div class="hint">Proyecto de estadías</div>
+      </div>
+
+      <!-- Parte inferior (SIEMPRE abajo) -->
+      <div style="margin-top:auto; padding-top:14px;">
+        <button id="btnLogout" class="btn secondary" style="width:100%;">
+          🔒 Cerrar sesión
+        </button>
+      </div>
+
+    </aside>
+
+    <main class="main glow" style="padding-bottom: 40px;">
+      <div class="page-title" style="margin-bottom: 30px;">
+        <h1 style="font-size: 28px;">Panel Analítico de Calidad</h1>
+        <p>Análisis digital de KPIs y tendencias de producción.</p>
+      </div>
+
+      <!-- KPI Cards -->
+      <div class="grid"
+        style="grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 24px; margin-bottom: 32px;">
+        <!-- Card 1: Total Defectos -->
+        <div class="card" style="padding: 24px; position: relative;">
+          <div
+            style="display: flex; justify-content: space-between; align-items: flex-start; position: relative; z-index: 10;">
+            <div>
+              <p
+                style="color: #64748b; font-size: 12px; font-weight: 800; text-transform: uppercase; letter-spacing: 1px; margin: 0 0 6px 0;">
+                Total Defectos</p>
+              <h3 id="kpi-total" style="font-size: 32px; font-weight: 900; margin: 0; color: white;">0</h3>
+              <p
+                style="font-size: 12px; color: #94a3b8; margin: 8px 0 0 0; display: flex; align-items: center; gap: 4px;">
+                <span style="color: #f87171; font-weight: bold;">+12%</span> vs mes anterior
+              </p>
+            </div>
+            <div style="padding: 12px; background: rgba(59, 130, 246, 0.1); border-radius: 16px;">
+              <i data-lucide="alert-triangle" style="color: #3b82f6; width: 24px; height: 24px;"></i>
+            </div>
+          </div>
+          <div
+            style="position: absolute; right: -10px; bottom: -10px; width: 100px; height: 100px; background: rgba(59, 130, 246, 0.05); filter: blur(30px); border-radius: 50%;">
+          </div>
+        </div>
+
+        <!-- Card 2: Tasa de Rechazo -->
+        <div class="card" style="padding: 24px; position: relative;">
+          <div
+            style="display: flex; justify-content: space-between; align-items: flex-start; position: relative; z-index: 10;">
+            <div>
+              <p
+                style="color: #64748b; font-size: 12px; font-weight: 800; text-transform: uppercase; letter-spacing: 1px; margin: 0 0 6px 0;">
+                Tasa de Rechazo</p>
+              <h3 id="kpi-tasa" style="font-size: 32px; font-weight: 900; margin: 0; color: white;">0%</h3>
+              <p
+                style="font-size: 12px; color: #94a3b8; margin: 8px 0 0 0; display: flex; align-items: center; gap: 4px;">
+                <span style="color: #4ade80; font-weight: bold;">-0.5%</span> meta alcanzada
+              </p>
+            </div>
+            <div style="padding: 12px; background: rgba(99, 102, 241, 0.1); border-radius: 16px;">
+              <i data-lucide="activity" style="color: #6366f1; width: 24px; height: 24px;"></i>
+            </div>
+          </div>
+          <div
+            style="position: absolute; right: -10px; bottom: -10px; width: 100px; height: 100px; background: rgba(99, 102, 241, 0.05); filter: blur(30px); border-radius: 50%;">
+          </div>
+        </div>
+
+        <!-- Card 3: Defecto Crítico -->
+        <div class="card" style="padding: 24px; position: relative;">
+          <div
+            style="display: flex; justify-content: space-between; align-items: flex-start; position: relative; z-index: 10;">
+            <div>
+              <p
+                style="color: #64748b; font-size: 12px; font-weight: 800; text-transform: uppercase; letter-spacing: 1px; margin: 0 0 6px 0;">
+                Defecto Crítico</p>
+              <h3 id="kpi-critico"
+                style="font-size: 20px; font-weight: 900; margin: 8px 0 0 0; color: white; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; max-width: 150px;">
+                N/A</h3>
+              <p style="font-size: 12px; color: #94a3b8; margin: 8px 0 0 0;">Frecuencia más alta detectada</p>
+            </div>
+            <div style="padding: 12px; background: rgba(20, 184, 166, 0.1); border-radius: 16px;">
+              <i data-lucide="trending-up" style="color: #14b8a6; width: 24px; height: 24px;"></i>
+            </div>
+          </div>
+          <div
+            style="position: absolute; right: -10px; bottom: -10px; width: 100px; height: 100px; background: rgba(20, 184, 166, 0.05); filter: blur(30px); border-radius: 50%;">
+          </div>
+        </div>
+      </div>
+
+      <!-- Charts Row 1 -->
+      <div class="grid" style="grid-template-columns: 1fr 1fr; gap: 32px; margin-bottom: 32px;">
+
+        <!-- Pareto Chart -->
+        <div class="card" style="padding: 32px;">
+          <h3
+            style="margin: 0 0 24px 0; font-size: 16px; display: flex; align-items: center; gap: 8px; font-weight:bold;">
+            <i data-lucide="check-circle-2" style="color: #3b82f6; width: 20px; height: 20px;"></i>
+            Análisis de Pareto (Frecuencia)
+          </h3>
+          <div style="height: 320px; width: 100%; position: relative;">
+            <canvas id="paretoChart"></canvas>
+          </div>
+        </div>
+
+        <!-- Shift Distribution -->
+        <div class="card" style="padding: 32px; position: relative;">
+          <h3
+            style="margin: 0 0 24px 0; font-size: 16px; display: flex; align-items: center; gap: 8px; font-weight:bold;">
+            <i data-lucide="clock" style="color: #6366f1; width: 20px; height: 20px;"></i>
+            Defectos por Turno
+          </h3>
+          <div
+            style="height: 320px; width: 100%; position: relative; display: flex; justify-content: center; align-items: center;">
+            <canvas id="shiftChart"></canvas>
+
+            <!-- Center Text for Donut -->
+            <div
+              style="position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%); text-align: center; margin-top: 15px; pointer-events: none;">
+              <p
+                style="font-size: 12px; font-weight: bold; color: #64748b; text-transform: uppercase; letter-spacing: 1px; margin: 0;">
+                Turno</p>
+              <p style="font-size: 12px; color: #94a3b8; margin: 0;">Predominancia</p>
+            </div>
+          </div>
+        </div>
+
+      </div>
+
+      <!-- Charts Row 2 - Trends -->
+      <div class="card" style="padding: 32px;">
+        <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 24px;">
+          <h3 style="margin: 0; font-size: 16px; display: flex; align-items: center; gap: 8px; font-weight:bold;">
+            <i data-lucide="trending-up" style="color: #2dd4bf; width: 20px; height: 20px;"></i>
+            Tendencia de Incidencias (Últimos Reportes)
+          </h3>
+          <span style="font-size: 12px; color: #94a3b8; display: flex; align-items: center; gap: 6px;">
+            <div style="width: 10px; height: 10px; border-radius: 50%; background: #14b8a6;"></div> Reportado
+          </span>
+        </div>
+        <div style="height: 320px; width: 100%; position: relative;">
+          <canvas id="trendChart"></canvas>
+        </div>
+      </div>
+    </main>
+  </div>
+
+  <script src="js/dashboard.js"></script>
+</body>
+
+</html>
